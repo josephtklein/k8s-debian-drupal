@@ -25,7 +25,6 @@ RUN     apt-get update && \
 		php7.3-intl \
 		php7.3-bz2 \
 		php7.3-mysql \
-		yarn \
 		rpcbind \
 		musl \
 		openrc \
@@ -34,6 +33,8 @@ RUN     apt-get update && \
 		npm
 
 
+
+RUN npm -g yarn
 ## Get dependencies for Go part of build
 #RUN go get -u github.com/jteeuwen/go-bindata/...
 #RUN go get github.com/tools/godep
