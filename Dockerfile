@@ -25,6 +25,7 @@ RUN     apt-get update && \
 		php7.3-intl \
 		php7.3-bz2 \
 		php7.3-mysql \
+		nfs-common \
 		net-tools \
 		snmp \
 		rpcbind \
