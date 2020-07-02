@@ -33,8 +33,8 @@ RUN     apt-get update && \
 		npm
 
 
-
-RUN npm -g yarn
+RUN npm init --yes
+RUN npm install -g yarn
 ## Get dependencies for Go part of build
 #RUN go get -u github.com/jteeuwen/go-bindata/...
 #RUN go get github.com/tools/godep
