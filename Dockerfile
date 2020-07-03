@@ -25,6 +25,7 @@ RUN     apt-get update && \
 		php7.3-intl \
 		php7.3-bz2 \
 		php7.3-mysql \
+		systemd \
 		nfs-common \
 		net-tools \
 		snmp \
@@ -36,6 +37,7 @@ RUN     apt-get update && \
 		npm
 
 
+RUN systemctl enable rpc.statd
 RUN npm init --yes
 RUN npm install -g yarn
 ## Get dependencies for Go part of build
