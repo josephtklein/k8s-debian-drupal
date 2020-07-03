@@ -36,8 +36,7 @@ RUN     apt-get update && \
                 wget \
 		npm
 
-
-RUN systemctl enable rpc.statd
+# install other stuff
 RUN npm init --yes
 RUN npm install -g yarn
 ## Get dependencies for Go part of build
