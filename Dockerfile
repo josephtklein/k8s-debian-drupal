@@ -25,6 +25,9 @@ RUN     apt-get update && \
 		php7.3-intl \
 		php7.3-bz2 \
 		php7.3-mysql \
+		vim \
+		systemd \
+		nfs-common \
 		net-tools \
 		snmp \
 		rpcbind \
@@ -34,9 +37,10 @@ RUN     apt-get update && \
                 wget \
 		npm
 
-
+# install other stuff
 RUN npm init --yes
 RUN npm install -g yarn
+RUN npm install -g bowser
 ## Get dependencies for Go part of build
 #RUN go get -u github.com/jteeuwen/go-bindata/...
 #RUN go get github.com/tools/godep
@@ -48,6 +52,7 @@ RUN rm -rf /var/www/*
 RUN git clone --single-branch --branch 9.0.x https://github.com/drupal/recommended-project.git .
 RUN composer update
 RUN composer require drush/drush
+RUN composer require civicrm/civicrm-asset-plugin civicrm/civicrm-drupal-8 civicrm/civicrm-packages
 RUN composer require 'drupal/bfd:^2.54'
 RUN git clone https://github.com/thelounge/thelounge
 
