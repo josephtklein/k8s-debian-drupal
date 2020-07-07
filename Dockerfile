@@ -51,6 +51,7 @@ RUN rm -rf /var/www/*
 RUN git clone --single-branch --branch 9.0.x https://github.com/drupal/recommended-project.git .
 RUN composer update
 RUN composer require drush/drush
+RUN composer require civicrm/civicrm-asset-plugin civicrm/civicrm-drupal-8 civicrm/civicrm-packages
 RUN composer require 'drupal/bfd:^2.54'
 RUN git clone https://github.com/thelounge/thelounge
 
