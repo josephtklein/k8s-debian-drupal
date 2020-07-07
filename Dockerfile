@@ -40,6 +40,7 @@ RUN     apt-get update && \
 # install other stuff
 RUN npm init --yes
 RUN npm install -g yarn
+RUN npm install -g bowser
 ## Get dependencies for Go part of build
 #RUN go get -u github.com/jteeuwen/go-bindata/...
 #RUN go get github.com/tools/godep
