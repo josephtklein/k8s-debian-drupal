@@ -25,6 +25,7 @@ RUN     apt-get update && \
 		php7.3-intl \
 		php7.3-bz2 \
 		php7.3-mysql \
+		util-linux \
 		vim \
 		systemd \
 		nfs-common \
@@ -39,22 +40,27 @@ RUN     apt-get update && \
 
 # install other stuff
 RUN npm init --yes
+RUN npm install -g n
+RUN n latest
+RUN npm install -g npm@latest
 RUN npm install -g yarn
 RUN npm install -g bowser
 ## Get dependencies for Go part of build
 #RUN go get -u github.com/jteeuwen/go-bindata/...
 #RUN go get github.com/tools/godep
 RUN mkdir /var/www
+RUN chown www-data:www-data /var/www
+RUN usermod -s /bin/bash www-data
 
 WORKDIR /var/www
 
 RUN rm -rf /var/www/*
-RUN git clone --single-branch --branch 9.0.x https://github.com/drupal/recommended-project.git .
-RUN composer update
-RUN composer require drush/drush
-RUN composer require civicrm/civicrm-asset-plugin civicrm/civicrm-drupal-8 civicrm/civicrm-packages
-RUN composer require 'drupal/bfd:^2.54'
-RUN git clone https://github.com/thelounge/thelounge
+RUN runuser -l www-data -c 'git clone --single-branch --branch 9.0.x https://github.com/drupal/recommended-project.git .'
+RUN runuser -l www-data -c 'composer update'
+RUN runuser -l www-data -c 'composer require drush/drush'
+RUN runuser -l www-data -c 'composer require civicrm/civicrm-asset-plugin civicrm/civicrm-drupal-8 civicrm/civicrm-packages'
+RUN runuser -l www-data -c 'composer require "drupal/bfd:^2.54"'
+RUN runuser -l www-data -c 'git clone https://github.com/thelounge/thelounge'
 
 WORKDIR /var/www/thelounge
 
