@@ -40,9 +40,9 @@ RUN     apt-get update && \
 
 # install other stuff
 RUN npm init --yes
+RUN npm install -g npm@latest
 RUN npm install -g n
 RUN n latest
-RUN npm install -g npm@latest
 RUN npm install -g yarn
 RUN npm install -g bowser
 ## 
