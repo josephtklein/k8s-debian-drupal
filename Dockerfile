@@ -45,9 +45,7 @@ RUN n latest
 RUN npm install -g npm@latest
 RUN npm install -g yarn
 RUN npm install -g bowser
-## Get dependencies for Go part of build
-#RUN go get -u github.com/jteeuwen/go-bindata/...
-#RUN go get github.com/tools/godep
+## 
 RUN mkdir /var/www
 RUN chown www-data:www-data /var/www
 RUN usermod -s /bin/bash www-data
