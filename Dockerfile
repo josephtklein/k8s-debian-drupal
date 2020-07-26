@@ -6,37 +6,38 @@ ENV COMPOSER_MEMORY_LIMIT=-1
 RUN     apt-get update && \
         apt-get upgrade && \
         apt-get -y install  \
-                bash \
-                git \
-                php7.3 \
-		php7.3-fpm \
-                php7.3-dom \
-                php7.3-gd \
-                php7.3-pdo \
-                php7.3-simplexml \
-                php7.3-tokenizer \
-                php7.3-xml \
-                php7.3-curl \
-                php7.3-xmlwriter \
-                php7.3-json \
-		php7.3-ctype \
-		php7.3-posix \
-		php7.3-soap \
-		php7.3-intl \
-		php7.3-bz2 \
-		php7.3-mysql \
-		util-linux \
-		vim \
-		systemd \
-		nfs-common \
-		net-tools \
-		snmp \
-		rpcbind \
-		musl \
-		openrc \
-                composer \
-                wget \
-		npm
+          bash \
+          git \
+          php7.3 \
+          php7.3-fpm \
+          php7.3-dom \
+          php7.3-gd \
+          php7.3-pdo \
+          php7.3-simplexml \
+          php7.3-tokenizer \
+          php7.3-xml \
+          php7.3-curl \
+          php7.3-xmlwriter \
+          php7.3-json \
+          php7.3-ctype \
+          php7.3-posix \
+          php7.3-soap \
+          php7.3-intl \
+          php7.3-bz2 \
+          php7.3-mysql \
+          util-linux \
+          vim \
+          systemd \
+          nfs-common \
+          net-tools \
+          snmp \
+          rpcbind \
+          musl \
+          openrc \
+          composer \
+          wget \
+          nginx \
+          npm
 
 # install other stuff
 RUN npm init --yes
@@ -45,7 +46,7 @@ RUN npm install -g n
 RUN n latest
 RUN npm install -g yarn
 RUN npm install -g bowser
-## 
+##
 RUN mkdir /var/www
 RUN chown www-data:www-data /var/www
 RUN usermod -s /bin/bash www-data
