@@ -74,5 +74,10 @@ RUN thelounge start &
 
 WORKDIR /var/www
 
+# Expose HTTP.
+ENV PORT 80
+EXPOSE ${PORT}
+
+
 # loop de loop to keep going
 CMD tail -f /dev/null
