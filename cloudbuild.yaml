@@ -19,7 +19,7 @@
    - '--platform'
    - 'managed'
    - '--timeout'
-   - '1200s'
- timeout: 15m
+   - '840s'
+ timeout: 840s
  images:
  - 'gcr.io/the-slate-133223/drupal9:$COMMIT_SHA'
