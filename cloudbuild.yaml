@@ -1,15 +1,10 @@
  steps:
  # Build the container image
- - name: 'gcr.io/cloud-builders/gcloud'
-  entrypoint: 'bash'
-  args: ['-c', 'gcloud config set app/cloud_build_timeout 1200 && gcloud app deploy']
  - name: 'gcr.io/cloud-builders/docker'
    args: ['build', '-t', 'gcr.io/the-slate-133223/drupal9:$COMMIT_SHA', '.']
  # Push the container image to Container Registry
  - name: 'gcr.io/cloud-builders/docker'
    args: ['push', 'gcr.io/the-slate-133223/drupal9:$COMMIT_SHA']
-     timeout: 1200s
-timeout: 1200s
  # Deploy container image to Cloud Run
  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
    entrypoint: gcloud
@@ -25,3 +20,4 @@ timeout: 1200s
    - 'managed'
  images:
  - 'gcr.io/the-slate-133223/drupal9:$COMMIT_SHA'
+timeout: 30m
