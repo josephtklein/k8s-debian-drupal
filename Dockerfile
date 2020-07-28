@@ -47,7 +47,7 @@ RUN n latest
 RUN npm install -g yarn
 RUN npm install -g bowser
 ##
-RUN mkdir /var/www
+# RUN mkdir /var/www # made by nginx
 RUN chown www-data:www-data /var/www
 RUN usermod -s /bin/bash www-data
 
