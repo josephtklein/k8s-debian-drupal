@@ -2,6 +2,7 @@
  # Build the container image
  - name: 'gcr.io/cloud-builders/docker'
    args: ['build', '-t', 'gcr.io/the-slate-133223/drupal9:$COMMIT_SHA', '.']
+   timeout: 1000s
  # Push the container image to Container Registry
  - name: 'gcr.io/cloud-builders/docker'
    args: ['push', 'gcr.io/the-slate-133223/drupal9:$COMMIT_SHA']
