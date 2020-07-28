@@ -20,6 +20,6 @@
    - 'managed'
    - '--timeout'
    - '1200s'
- timeout: 45m
+ timeout: 15m
  images:
  - 'gcr.io/the-slate-133223/drupal9:$COMMIT_SHA'
