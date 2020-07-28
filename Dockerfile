@@ -78,6 +78,8 @@ WORKDIR /var/www
 ENV PORT 80
 EXPOSE ${PORT}
 
+# need nginx config.
+
 
 # loop de loop to keep going
 CMD tail -f /dev/null
