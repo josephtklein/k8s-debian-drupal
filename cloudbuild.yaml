@@ -5,7 +5,7 @@
  # Push the container image to Container Registry
  - name: 'gcr.io/cloud-builders/docker'
    args: ['push', 'gcr.io/the-slate-133223/drupal9:$COMMIT_SHA']
-   timeout: 20m
+   timeout: 1200s
  # Deploy container image to Cloud Run
  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
    entrypoint: gcloud
