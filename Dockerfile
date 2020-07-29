@@ -65,8 +65,8 @@ RUN runuser -l www-data -c 'git clone https://github.com/thelounge/thelounge'
 WORKDIR /var/www/thelounge
 
 # Expose HTTP.
-ENV PORT 9000
-EXPOSE ${PORT}
+ENV TL_PORT 9000
+EXPOSE ${TL_PORT}
 
 RUN yarn install
 RUN NODE_ENV=production yarn build
@@ -76,11 +76,14 @@ RUN thelounge start &
 WORKDIR /var/www
 
 # Expose HTTP.
-ENV PORT 80
-EXPOSE ${PORT}
+ENV HTTP_PORT 80
+EXPOSE ${HTTP_PORT}
+# Expose HTTPS.
+ENV HTTPS_PORT 443
+EXPOSE ${HTTPS_PORT}
 
 # need nginx config.
-CMD systemctl enable nginx
+RUN systemctl enable nginx
 
 # loop de loop to keep going
 CMD tail -f /dev/null
