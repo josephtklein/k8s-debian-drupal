@@ -59,6 +59,7 @@ RUN runuser -l www-data -c 'composer update'
 RUN runuser -l www-data -c 'composer require drush/drush'
 RUN runuser -l www-data -c 'composer require civicrm/civicrm-asset-plugin civicrm/civicrm-drupal-8 civicrm/civicrm-packages'
 RUN runuser -l www-data -c 'composer require "drupal/bfd:^2.54"'
+RUN runuser -l www-data -c 'composer require "drupal/qwebirc:^1.0"'
 RUN runuser -l www-data -c 'git clone https://github.com/thelounge/thelounge'
 
 WORKDIR /var/www/thelounge
@@ -79,7 +80,7 @@ ENV PORT 80
 EXPOSE ${PORT}
 
 # need nginx config.
-
+CMD systemctl enable nginx
 
 # loop de loop to keep going
 CMD tail -f /dev/null
