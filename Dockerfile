@@ -65,8 +65,8 @@ RUN runuser -l www-data -c 'git clone https://github.com/thelounge/thelounge'
 WORKDIR /var/www/thelounge
 
 # Expose HTTP.
-ENV TL_PORT 9000
-EXPOSE ${TL_PORT}
+ENV LOUNGE_PORT 9000
+EXPOSE ${LOUNGE_PORT}
 
 RUN yarn install
 RUN NODE_ENV=production yarn build
