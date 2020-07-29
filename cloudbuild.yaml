@@ -5,13 +5,21 @@
  # Push the container image to Container Registry
  - name: 'gcr.io/cloud-builders/docker'
    args: ['push', 'gcr.io/the-slate-133223/drupal9:$COMMIT_SHA']
- # deploy container image to GKE
-- name: "gcr.io/cloud-builders/gke-deploy"
-  args:
-  - run
-  - --filename=kubernetes-config-file
-  - --location=us-central1-a
-  - --cluster=cluster-1
+  # Deploy container image to Cloud Run
+ - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+   entrypoint: gcloud
+   args:
+   - 'run'
+   - 'deploy'
+   - 'drupal9'
+   - '--image'
+   - 'gcr.io/the-slate-133223/drupal9:$COMMIT_SHA'
+   - '--region'
+   - 'us-central1'
+   - '--platform'
+   - 'managed'
+   - '--timeout'
+   - '840s'
  timeout: 3600s
  images:
  - 'gcr.io/the-slate-133223/drupal9:$COMMIT_SHA'
