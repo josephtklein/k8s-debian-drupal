@@ -44,25 +44,3 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: drupal9
----
-apiVersion: v1
-kind: Service
-metadata:
-  finalizers:
-    - service.kubernetes.io/load-balancer-cleanup
-  labels:
-    app: drupal9
-  name: nginx-service
-  namespace: default
-spec:
-  clusterIP: 10.11.247.247
-  externalTrafficPolicy: Cluster
-  ports:
-    - nodePort: 30813
-      port: 80
-      protocol: TCP
-      targetPort: 80
-  selector:
-    app: drupal9
-  sessionAffinity: None
-  type: LoadBalancer
