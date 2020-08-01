@@ -60,21 +60,21 @@ RUN runuser -l www-data -c 'composer require drush/drush'
 RUN runuser -l www-data -c 'composer require civicrm/civicrm-asset-plugin civicrm/civicrm-drupal-8 civicrm/civicrm-packages'
 RUN runuser -l www-data -c 'composer require "drupal/bfd:^2.54"'
 RUN runuser -l www-data -c 'composer require "drupal/qwebirc:^1.0"'
-RUN runuser -l www-data -c 'git clone https://github.com/thelounge/thelounge'
+#RUN runuser -l www-data -c 'git clone https://github.com/thelounge/thelounge'
 
-WORKDIR /var/www/thelounge
+#WORKDIR /var/www/thelounge
 
-# Expose HTTP.
-ENV LOUNGE_PORT 9000
-EXPOSE ${LOUNGE_PORT}
+## Expose HTTP.
+#ENV LOUNGE_PORT 9000
+#EXPOSE ${LOUNGE_PORT}
 
-RUN yarn install
-RUN NODE_ENV=production yarn build
-RUN yarn link
-RUN `yarn link "thelounge"`
-RUN thelounge start &
+#RUN yarn install
+#RUN NODE_ENV=production yarn build
+#RUN yarn link
+##RUN `yarn link "thelounge"`
+#RUN thelounge start &
 
-WORKDIR /var/www
+#WORKDIR /var/www
 
 # Expose HTTP.
 ENV PORT 80
