@@ -4,7 +4,7 @@ FROM debian:stable-slim AS build
 ENV COMPOSER_MEMORY_LIMIT=-1
 # Install Stuff
 RUN     apt-get update && \
-        apt-get upgrade && \
+        apt-get -y upgrade && \
         apt-get -y install  \
           bash \
           git \
