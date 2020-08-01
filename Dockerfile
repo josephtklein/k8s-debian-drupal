@@ -71,13 +71,14 @@ EXPOSE ${LOUNGE_PORT}
 RUN yarn install
 RUN NODE_ENV=production yarn build
 RUN yarn link
+RUN `yarn link "thelounge"`
 RUN thelounge start &
 
 WORKDIR /var/www
 
 # Expose HTTP.
-ENV HTTP_PORT 80
-EXPOSE ${HTTP_PORT}
+ENV PORT 80
+EXPOSE ${PORT}
 # Expose HTTPS.
 ENV HTTPS_PORT 443
 EXPOSE ${HTTPS_PORT}
