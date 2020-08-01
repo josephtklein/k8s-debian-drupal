@@ -83,7 +83,7 @@ ENV HTTPS_PORT 443
 EXPOSE ${HTTPS_PORT}
 
 # need nginx config.
-RUN systemctl enable nginx
+#
 
 # loop de loop to keep going
 CMD tail -f /dev/null
