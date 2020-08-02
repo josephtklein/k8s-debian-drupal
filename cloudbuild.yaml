@@ -1,15 +1,15 @@
  steps:
  # Build the container image
- - name: 'gcr.io/cloud-builders/docker'
-   args: ['build', '-t', 'gcr.io/the-slate-133223/drupal9:$COMMIT_SHA', '.']
+ - name: "gcr.io/cloud-builders/docker"
+   args: ['build', '-t', 'gcr.io/the-slate-133223/drupal9:$SHORT_SHA', '.']
  # Push the container image to Container Registry
- - name: 'gcr.io/cloud-builders/docker'
-   args: ['push', 'gcr.io/the-slate-133223/drupal9:$COMMIT_SHA']
+ - name: "gcr.io/cloud-builders/docker"
+   args: ['push', 'gcr.io/the-slate-133223/drupal9:$SHORT_SHA']
  # deploy container image to GKE
  - name: "gcr.io/cloud-builders/gke-deploy"
    args:
    - run
    - --filename=kubernetes/drupal9-deply.yaml
-   - --image='gcr.io/the-slate-133223/drupal9:$COMMIT_SHA'
+   - --image=gcr.io/the-slate-133223/drupal9:$SHORT_SHA
    - --location=us-central1-a
    - --cluster=cluster-1
