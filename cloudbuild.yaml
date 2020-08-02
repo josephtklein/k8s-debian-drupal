@@ -13,4 +13,4 @@
    - --image=gcr.io/the-slate-133223/drupal9:$SHORT_SHA
    - --location=us-central1-a
    - --cluster=cluster-1
- timeout: 3600
+ timeout: 3600s
