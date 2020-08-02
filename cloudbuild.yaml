@@ -9,7 +9,7 @@
  - name: "gcr.io/cloud-builders/gke-deploy"
    args:
    - run
-   - --filename=kubernetes/drupal9-deply.yaml
+   - --filename=kubernetes/drupal9-deploy.yaml
    - --image=gcr.io/the-slate-133223/drupal9:$SHORT_SHA
    - --location=us-central1-a
    - --cluster=cluster-1
