@@ -30,7 +30,7 @@ kind: HorizontalPodAutoscaler
 metadata:
   labels:
     app: drupal9
-  name: drupal9-hpa-cjay
+  name: drupal9-1
   namespace: default
 spec:
   maxReplicas: 5
