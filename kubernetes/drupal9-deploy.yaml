@@ -2,14 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: drupal9
-  name: drupal9
+    app.kubernetes.io/name: debian-drupal
+    app.kubernetes.io/instance: debian-drupal
+    app.kubernetes.io/version: "9.x.x"
+    app.kubernetes.io/component: server
+    app.kubernetes.io/part-of: drupal
+  name: debian-drupal
   namespace: default
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: drupal9
+      app: debian-drupal
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -18,19 +22,19 @@ spec:
   template:
     metadata:
       labels:
-        app: drupal9
+        app: debian-drupal
     spec:
       containers:
-        - image: gcr.io/the-slate-133223/drupal9:$REVISION_ID
+        - image: gcr.io/the-slate-133223/github.com/josephtklein/k8s-debian-drupal:$REVISION_ID
           imagePullPolicy: IfNotPresent
-          name: drupal9
+          name: debian-drupal
 ---
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
   labels:
-    app: drupal9
-  name: drupal9
+    app: debian-drupal
+  name: debian-drupal
   namespace: default
 spec:
   maxReplicas: 5
@@ -43,4 +47,4 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: drupal9
+    name: debian-drupal
