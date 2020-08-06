@@ -6,11 +6,11 @@
  - name: "gcr.io/cloud-builders/docker"
    args: ['push', 'gcr.io/the-slate-133223/github.com/josephtklein/k8s-debian-drupal:$REVISION_ID']
  # deploy container image to GKE
- - name: 'gcr.io/cloud-builders/gke-deploy'
+ - name: "gcr.io/cloud-builders/gke-deploy"
    args:
    - run
    - --filename=kubernetes/drupal9-deploy.yaml
-   - --image=gcr.io/the-slate-133223/github.com/josephtklein/k8s-debian-drupal:$REVISION_ID
+   - --image='gcr.io/the-slate-133223/github.com/josephtklein/k8s-debian-drupal:$REVISION_ID'
    - --location=us-central1-a
    - --cluster=cluster-1
    - --verbose
