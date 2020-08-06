@@ -10,7 +10,7 @@
    args:
    - run
    - --filename="/kubernetes/drupal9-deploy.yaml"
-   - --image="gcr.io/the-slate-133223/drupal9:$SHORT_SHA"
+   - --image="gcr.io/the-slate-133223/drupal9"
    - --location="us-central1-a"
    - --cluster="cluster-1"
  timeout: 3600s
