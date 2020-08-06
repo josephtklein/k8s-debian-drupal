@@ -21,9 +21,9 @@ spec:
         app: drupal9
     spec:
       containers:
-        - image: gcr.io/the-slate-133223/github.com/josephtklein/k8s-debian-drupal
+        - image: gcr.io/the-slate-133223/'drupal9:$REVISION_ID'
           imagePullPolicy: IfNotPresent
-          name: k8s-debian-drupal
+          name: drupal9
 ---
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
