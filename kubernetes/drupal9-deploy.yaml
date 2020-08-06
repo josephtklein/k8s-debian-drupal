@@ -23,14 +23,14 @@ spec:
       containers:
         - image: gcr.io/the-slate-133223/github.com/josephtklein/k8s-debian-drupal
           imagePullPolicy: IfNotPresent
-          name: k8s-debian-drupal-1
+          name: k8s-debian-drupal
 ---
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
   labels:
     app: drupal9
-  name: drupal9-1
+  name: drupal9
   namespace: default
 spec:
   maxReplicas: 5
