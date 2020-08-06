@@ -9,9 +9,9 @@
  - name: 'gcr.io/cloud-builders/gke-deploy'
    args:
    - run
-   - --filename="kubernetes/drupal9-deploy.yaml"
-   - --image="gcr.io/the-slate-133223/github.com/josephtklein/k8s-debian-drupal:$REVISION_ID"
-   - --location="us-central1-a"
-   - --cluster="cluster-1"
+   - --filename=kubernetes/drupal9-deploy.yaml
+   - --image=gcr.io/the-slate-133223/github.com/josephtklein/k8s-debian-drupal:$REVISION_ID
+   - --location=us-central1-a
+   - --cluster=cluster-1
    - --verbose
  timeout: 3600s
