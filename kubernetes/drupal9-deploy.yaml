@@ -21,7 +21,7 @@ spec:
         app: drupal9
     spec:
       containers:
-        - image: gcr.io/the-slate-133223/'drupal9:$REVISION_ID'
+        - image: gcr.io/the-slate-133223/drupal9:$REVISION_ID
           imagePullPolicy: IfNotPresent
           name: drupal9
 ---
