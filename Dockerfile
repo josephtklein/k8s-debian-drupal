@@ -8,23 +8,23 @@ RUN     apt-get update && \
         apt-get -y install  \
           bash \
           git \
-          php7.3 \
-          php7.3-fpm \
-          php7.3-dom \
-          php7.3-gd \
-          php7.3-pdo \
-          php7.3-simplexml \
-          php7.3-tokenizer \
-          php7.3-xml \
-          php7.3-curl \
-          php7.3-xmlwriter \
-          php7.3-json \
-          php7.3-ctype \
-          php7.3-posix \
-          php7.3-soap \
-          php7.3-intl \
-          php7.3-bz2 \
-          php7.3-mysql \
+          php8.1 \
+          php8.1-fpm \
+          php8.1-dom \
+          php8.1-gd \
+          php8.1-pdo \
+          php8.1-simplexml \
+          php8.1-tokenizer \
+          php8.1-xml \
+          php8.1-curl \
+          php8.1-xmlwriter \
+          php8.1-json \
+          php8.1-ctype \
+          php8.1-posix \
+          php8.1-soap \
+          php8.1-intl \
+          php8.1-bz2 \
+          php8.1-mysql \
           util-linux \
           vim \
           systemd \
