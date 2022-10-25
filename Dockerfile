@@ -54,7 +54,7 @@ RUN usermod -s /bin/bash www-data
 WORKDIR /var/www
 
 RUN rm -rf /var/www/*
-RUN runuser -l www-data -c 'git clone --single-branch --branch 9.0.x https://github.com/drupal/recommended-project.git .'
+RUN runuser -l www-data -c 'git clone --single-branch --branch 10.0.x https://github.com/drupal/recommended-project.git .'
 RUN runuser -l www-data -c 'composer update'
 RUN runuser -l www-data -c 'composer require drush/drush'
 RUN runuser -l www-data -c 'composer require civicrm/civicrm-asset-plugin civicrm/civicrm-drupal-8 civicrm/civicrm-packages'
